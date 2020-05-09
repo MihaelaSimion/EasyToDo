@@ -21,14 +21,14 @@ class TaskTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    func setUpCellWith(task: Task) {
+    func setUpCellWith(task: Task?) {
         setUpViews()
-        taskContentLabel.text = task.content
-        if task.done == true {
+        taskContentLabel.text = task?.content
+        if task?.done == true {
             taskDoneButton.backgroundColor = .green
             taskDoneButton.layer.borderWidth = 0
             dateExplanationLabel.text = "Done on:"
-            if let doneDate = task.doneDate {
+            if let doneDate = task?.doneDate {
                 dateLabel.text = doneDate.dateToString()
             }
         } else {
@@ -36,9 +36,10 @@ class TaskTableViewCell: UITableViewCell {
             taskDoneButton.layer.borderColor = UIColor.lightGray.cgColor
             taskDoneButton.backgroundColor = .white
             dateExplanationLabel.text = "Created on:"
-            dateLabel.text = task.createdDate.dateToString()
+            dateLabel.text = task?.createdDate.dateToString()
         }
-        if let priority = Priority(rawValue: task.priority) {
+        if let priorityValue = task?.priority,
+            let priority = Priority(rawValue: priorityValue) {
             priorityLabel.text = "\(priority)"
         }
     }
