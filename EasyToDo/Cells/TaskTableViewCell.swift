@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol MarkTaskAsDoneDelegate: AnyObject {
+    func moveTaskToDone(forCell: UITableViewCell)
+}
+
 class TaskTableViewCell: UITableViewCell {
+    weak var markTaskAsDoneDelegate: MarkTaskAsDoneDelegate?
+
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var taskContentLabel: UILabel!
     @IBOutlet private weak var taskDoneButton: UIButton!
@@ -25,7 +31,7 @@ class TaskTableViewCell: UITableViewCell {
         setUpViews()
         taskContentLabel.text = task?.content
         if task?.done == true {
-            taskDoneButton.backgroundColor = .green
+            taskDoneButton.backgroundColor = #colorLiteral(red: 0.5607843137, green: 0.7882352941, blue: 0.7333333333, alpha: 1)
             taskDoneButton.layer.borderWidth = 0
             dateExplanationLabel.text = "Done on:"
             if let doneDate = task?.doneDate {
@@ -51,5 +57,6 @@ class TaskTableViewCell: UITableViewCell {
     }
 
     @IBAction private func taskDoneButtonTapped(_ sender: Any) {
+        markTaskAsDoneDelegate?.moveTaskToDone(forCell: self)
     }
 }
