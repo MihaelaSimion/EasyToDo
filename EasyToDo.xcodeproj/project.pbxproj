@@ -11,6 +11,7 @@
 		4752374C246691A4009F400E /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374B246691A4009F400E /* NewTaskViewController.swift */; };
 		4752374E24669AAB009F400E /* TapRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374D24669AAB009F400E /* TapRecognizerViewController.swift */; };
 		4752375024669C0A009F400E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374F24669C0A009F400E /* Alert.swift */; };
+		475237522466B45B009F400E /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475237512466B45B009F400E /* TaskTableViewCell.xib */; };
 		475AAE2824656BAF00A7B6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE2724656BAF00A7B6AB /* AppDelegate.swift */; };
 		475AAE2F24656BAF00A7B6AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475AAE2D24656BAF00A7B6AB /* Main.storyboard */; };
 		475AAE3124656BB100A7B6AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 475AAE3024656BB100A7B6AB /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		4752374B246691A4009F400E /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		4752374D24669AAB009F400E /* TapRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecognizerViewController.swift; sourceTree = "<group>"; };
 		4752374F24669C0A009F400E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		475237512466B45B009F400E /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		475AAE2424656BAF00A7B6AB /* EasyToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475AAE2724656BAF00A7B6AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		475AAE2E24656BAF00A7B6AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				475AAE662465B47D00A7B6AB /* TaskTableViewCell.swift */,
+				475237512466B45B009F400E /* TaskTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475237522466B45B009F400E /* TaskTableViewCell.xib in Resources */,
 				475AAE3424656BB100A7B6AB /* LaunchScreen.storyboard in Resources */,
 				475AAE3124656BB100A7B6AB /* Assets.xcassets in Resources */,
 				475AAE2F24656BAF00A7B6AB /* Main.storyboard in Resources */,

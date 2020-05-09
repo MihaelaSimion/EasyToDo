@@ -50,7 +50,7 @@ class NewTaskViewController: TapRecognizerViewController {
             button?.layer.borderColor = UIColor.lightGray.cgColor
         }
         addButton.layer.cornerRadius = addButton.frame.size.height / 2
-        addButton.backgroundColor = UIColor.lightGray
+        addButton.backgroundColor = #colorLiteral(red: 0.5607843137, green: 0.7882352941, blue: 0.7333333333, alpha: 1)
     }
 
     @IBAction private func highPriorityButtonTapped(_ sender: Any) {
