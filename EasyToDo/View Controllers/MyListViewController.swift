@@ -12,6 +12,7 @@ import UIKit
 class MyListViewController: UIViewController {
     var realm: Realm?
     var tasksToDo: Results<Task>?
+    var indexForTaskSelectedToEdit: Int?
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -33,6 +34,15 @@ class MyListViewController: UIViewController {
         tableView.reloadData()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "addOrEditTask",
+            let taskViewController = segue.destination as? NewTaskViewController else { return }
+        if let selectedCellIndex = indexForTaskSelectedToEdit {
+            taskViewController.taskToEdit = tasksToDo?[selectedCellIndex]
+            indexForTaskSelectedToEdit = nil
+        }
+    }
+
     func getRealmReference() {
         do {
             realm = try Realm()
@@ -48,7 +58,7 @@ class MyListViewController: UIViewController {
     }
 
     @IBAction private func newTaskButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "addNewTask", sender: self)
+        performSegue(withIdentifier: "addOrEditTask", sender: self)
     }
 
     @IBAction private func sortButtonTapped(_ sender: Any) {
@@ -72,7 +82,10 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // to do - open task screen to edit
+        indexForTaskSelectedToEdit = indexPath.row
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "addOrEditTask", sender: self)
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 
 class NewTaskViewController: TapRecognizerViewController {
     var realm: Realm?
+    var taskToEdit: Task?
     let alert = Alert()
     var chosenPriority = 3
 
@@ -26,9 +27,10 @@ class NewTaskViewController: TapRecognizerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpViews()
-        addObservers()
         getRealmReference()
+        addObservers()
+        setUpViews()
+        setUpInitialPriority()
     }
 
     func getRealmReference() {
@@ -50,7 +52,32 @@ class NewTaskViewController: TapRecognizerViewController {
             button?.layer.borderColor = UIColor.lightGray.cgColor
         }
         addButton.layer.cornerRadius = addButton.frame.size.height / 2
-        addButton.backgroundColor = #colorLiteral(red: 0.5607843137, green: 0.7882352941, blue: 0.7333333333, alpha: 1)
+        addButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.8235294118, blue: 0, alpha: 1)
+        // Task editing
+        if let task = taskToEdit {
+            taskContentTextField.text = task.content
+            addButton.setTitle("Save", for: .normal)
+        }
+    }
+
+    func setUpInitialPriority() {
+        guard let task = taskToEdit else {
+            highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            return }
+        switch task.priority {
+        case 3:
+            highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            chosenPriority = 3
+        case 2:
+            mediumPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            chosenPriority = 2
+        case 1:
+            lowPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            chosenPriority = 1
+        default:
+            highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            chosenPriority = 3
+        }
     }
 
     @IBAction private func highPriorityButtonTapped(_ sender: Any) {
@@ -83,11 +110,19 @@ class NewTaskViewController: TapRecognizerViewController {
                 alert.showAlertForError(title: nil, "Please enter the content of your task.", viewController: self)
                 return
         }
-        saveTaskToRealm(taskContent: taskContent)
+        saveOrUpdateTaskToRealm(taskContent: taskContent)
         dismiss(animated: true, completion: nil)
     }
 
-    func saveTaskToRealm(taskContent: String) {
+    func saveOrUpdateTaskToRealm(taskContent: String) {
+        if let task = taskToEdit {
+            updateTask(task: task)
+        } else {
+            createTask(taskContent: taskContent)
+        }
+    }
+
+    func createTask(taskContent: String) {
         let task = Task()
         task.content = taskContent
         task.priority = chosenPriority
@@ -100,18 +135,34 @@ class NewTaskViewController: TapRecognizerViewController {
         }
     }
 
+    func updateTask(task: Task) {
+        do {
+            try realm?.write {
+                if task.content != taskContentTextField.text {
+                    task.content = taskContentTextField.text
+                }
+                if task.priority != chosenPriority {
+                    task.priority = chosenPriority
+                }
+            }
+        } catch {
+            print("Could not write to Realm")
+        }
+    }
+
     // MARK: - Keyboard
     @objc
     func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let bottomPadding: CGFloat = 16
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            scrollView.contentInset.bottom = keyboardHeight
+            scrollView.contentInset.bottom = keyboardHeight + bottomPadding
         }
     }
 
     @objc
     func keyboardWillHide(_ notification: Notification) {
-        scrollView.contentInset.bottom = 32
+        scrollView.contentInset.bottom = 0
     }
 }

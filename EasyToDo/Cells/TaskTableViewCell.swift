@@ -31,16 +31,15 @@ class TaskTableViewCell: UITableViewCell {
         setUpViews()
         taskContentLabel.text = task?.content
         if task?.done == true {
+            containerView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
             taskDoneButton.backgroundColor = #colorLiteral(red: 0.5607843137, green: 0.7882352941, blue: 0.7333333333, alpha: 1)
-            taskDoneButton.layer.borderWidth = 0
             dateExplanationLabel.text = "Done on:"
-            if let doneDate = task?.doneDate {
-                dateLabel.text = doneDate.dateToString()
-            }
+            dateLabel.text = task?.doneDate?.dateToString()
         } else {
+            containerView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.8235294118, blue: 0, alpha: 1)
+            taskDoneButton.backgroundColor = .white
             taskDoneButton.layer.borderWidth = 1
             taskDoneButton.layer.borderColor = UIColor.lightGray.cgColor
-            taskDoneButton.backgroundColor = .white
             dateExplanationLabel.text = "Created on:"
             dateLabel.text = task?.createdDate.dateToString()
         }
@@ -51,7 +50,6 @@ class TaskTableViewCell: UITableViewCell {
     }
 
     func setUpViews() {
-        containerView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
         containerView.layer.cornerRadius = 8
         taskDoneButton.layer.cornerRadius = taskDoneButton.frame.size.height / 2
     }

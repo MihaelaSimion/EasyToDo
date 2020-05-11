@@ -88,7 +88,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EaC-Qn-P0N">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EaC-Qn-P0N">
                                 <rect key="frame" x="0.0" y="204" width="375" height="414"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -119,7 +119,7 @@
                     <connections>
                         <outlet property="searchBar" destination="Uf5-4m-HEv" id="CFb-3Q-5Hl"/>
                         <outlet property="tableView" destination="EaC-Qn-P0N" id="J55-Sh-gX4"/>
-                        <segue destination="kNx-BY-3qY" kind="presentation" identifier="addNewTask" id="Gqk-z5-jJN"/>
+                        <segue destination="kNx-BY-3qY" kind="presentation" identifier="addOrEditTask" id="Gqk-z5-jJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HC-8T-igl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,8 +151,8 @@
                                             <action selector="cancelTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="cDC-lK-g8i"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-bK-S2w" userLabel="Main Stack View">
-                                        <rect key="frame" x="32" y="76" width="311" height="315"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-bK-S2w" userLabel="Main Stack View">
+                                        <rect key="frame" x="32" y="76" width="311" height="347"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M82-OK-eEe" userLabel="Task Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="62.5"/>
@@ -171,7 +171,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-Wn-k5g" userLabel="Priority Stack View">
-                                                <rect key="frame" x="0.0" y="78.5" width="311" height="176.5"/>
+                                                <rect key="frame" x="0.0" y="94.5" width="311" height="176.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-AK-YZ8">
                                                         <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
@@ -195,7 +195,7 @@
                                                                     <action selector="highPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="MKI-JO-aL8"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected" translatesAutoresizingMaskIntoConstraints="NO" id="MjT-VH-Rt6">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MjT-VH-Rt6">
                                                                 <rect key="frame" x="271" y="7" width="40" height="30"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -260,7 +260,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-lc-NhG" userLabel="Button Stack View">
-                                                <rect key="frame" x="0.0" y="271" width="311" height="44"/>
+                                                <rect key="frame" x="0.0" y="303" width="311" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqN-sv-D5m">
                                                         <rect key="frame" x="93.5" y="0.0" width="124" height="44"/>
@@ -373,7 +373,6 @@
     <resources>
         <image name="doneTabIcon" width="25" height="25"/>
         <image name="filter" width="16" height="16"/>
-        <image name="selected" width="26" height="17"/>
         <image name="sort" width="16" height="16"/>
         <image name="toDoTabIcon" width="25" height="25"/>
     </resources>

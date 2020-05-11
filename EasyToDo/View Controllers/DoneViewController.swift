@@ -12,7 +12,7 @@ import UIKit
 class DoneViewController: UIViewController {
     var realm: Realm?
     var doneTasks: Results<Task>?
-    
+
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
