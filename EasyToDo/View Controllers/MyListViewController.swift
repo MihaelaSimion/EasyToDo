@@ -57,6 +57,16 @@ class MyListViewController: UIViewController {
             .filter("done == FALSE")
     }
 
+    func deleteTask(task: Task) {
+        do {
+            try realm?.write {
+                realm?.delete(task)
+            }
+        } catch {
+            print("Could not delete object from Realm.")
+        }
+    }
+
     @IBAction private func newTaskButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "addOrEditTask", sender: self)
     }
@@ -86,6 +96,16 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "addOrEditTask", sender: self)
         }
+    }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let taskToDelete = tasksToDo?[indexPath.row] else { return }
+        deleteTask(task: taskToDelete)
+        tableView.reloadData()
     }
 }
 
