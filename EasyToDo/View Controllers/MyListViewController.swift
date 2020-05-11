@@ -12,7 +12,9 @@ import UIKit
 class MyListViewController: UIViewController {
     var realm: Realm?
     var tasksToDo: Results<Task>?
+    var tasksToShowInToDoList: Results<Task>?
     var indexForTaskSelectedToEdit: Int?
+    var showingSearchResults = false
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -38,7 +40,7 @@ class MyListViewController: UIViewController {
         guard segue.identifier == "addOrEditTask",
             let taskViewController = segue.destination as? NewTaskViewController else { return }
         if let selectedCellIndex = indexForTaskSelectedToEdit {
-            taskViewController.taskToEdit = tasksToDo?[selectedCellIndex]
+            taskViewController.taskToEdit = tasksToShowInToDoList?[selectedCellIndex]
             indexForTaskSelectedToEdit = nil
         }
     }
@@ -55,6 +57,7 @@ class MyListViewController: UIViewController {
         tasksToDo = realm?.objects(Task.self)
             .sorted(byKeyPath: "createdDate", ascending: false)
             .filter("done == FALSE")
+        tasksToShowInToDoList = tasksToDo
     }
 
     func deleteTask(task: Task) {
@@ -78,6 +81,17 @@ class MyListViewController: UIViewController {
         }
     }
 
+    func showTasksFromSearch(searchText: String) {
+        tasksToShowInToDoList = tasksToDo?.filter("content CONTAINS [c] '\(searchText)'")
+        tableView.reloadData()
+    }
+
+    func showAllToDoTasks() {
+        tasksToShowInToDoList = tasksToDo
+        showingSearchResults = false
+        tableView.reloadData()
+    }
+
     @IBAction private func newTaskButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "addOrEditTask", sender: self)
     }
@@ -91,19 +105,30 @@ class MyListViewController: UIViewController {
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasksToDo?.count ?? 0
+        if showingSearchResults,
+            tasksToShowInToDoList?.isEmpty == true {
+            return 1
+        }
+        return tasksToShowInToDoList?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell
-        let task = tasksToDo?[indexPath.row]
-        cell?.task = task
-        cell?.setUpCell()
-        cell?.handleTaskStatusDelegate = self
-        return cell ?? UITableViewCell()
+        if showingSearchResults,
+            tasksToShowInToDoList?.isEmpty == true {
+            let noSearchResultCell = tableView.dequeueReusableCell(withIdentifier: "noSearchResultCell", for: indexPath)
+            return noSearchResultCell
+        }
+
+        let taskCell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell
+        let task = tasksToShowInToDoList?[indexPath.row]
+        taskCell?.task = task
+        taskCell?.setUpCell()
+        taskCell?.handleTaskStatusDelegate = self
+        return taskCell ?? UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard tasksToShowInToDoList?.isEmpty == false else { return }
         indexForTaskSelectedToEdit = indexPath.row
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "addOrEditTask", sender: self)
@@ -111,11 +136,12 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        guard tasksToShowInToDoList?.isEmpty == false else { return .none }
         return .delete
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard let taskToDelete = tasksToDo?[indexPath.row] else { return }
+        guard let taskToDelete = tasksToShowInToDoList?[indexPath.row] else { return }
         deleteTask(task: taskToDelete)
         tableView.reloadData()
     }
@@ -124,7 +150,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 extension MyListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        // filter
+        guard let searchText = searchBar.text else { return }
+        showingSearchResults = true
+        showTasksFromSearch(searchText: searchText)
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -136,19 +164,19 @@ extension MyListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // To do
+        showAllToDoTasks()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        // To do
         searchBar.resignFirstResponder()
+        showAllToDoTasks()
     }
 }
 
 extension MyListViewController: HandleTaskStatusDelegate {
     func editTaskDoneStatus(forCell: UITableViewCell) {
         guard let index = tableView.indexPath(for: forCell),
-            let task = tasksToDo?[index.row] else { return }
+            let task = tasksToShowInToDoList?[index.row] else { return }
         markTaskAsDone(task: task)
         tableView.reloadData()
     }
