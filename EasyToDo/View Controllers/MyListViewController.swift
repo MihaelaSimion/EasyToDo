@@ -67,6 +67,17 @@ class MyListViewController: UIViewController {
         }
     }
 
+    func markTaskAsDone(task: Task) {
+        do {
+            try realm?.write {
+                task.done = true
+                task.doneDate = Date()
+            }
+        } catch {
+            print("Could not mark as done in Realm")
+        }
+    }
+
     @IBAction private func newTaskButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "addOrEditTask", sender: self)
     }
@@ -86,8 +97,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell
         let task = tasksToDo?[indexPath.row]
-        cell?.setUpCellWith(task: task)
-        cell?.markTaskAsDoneDelegate = self
+        cell?.task = task
+        cell?.setUpCell()
+        cell?.handleTaskStatusDelegate = self
         return cell ?? UITableViewCell()
     }
 
@@ -133,18 +145,11 @@ extension MyListViewController: UISearchBarDelegate {
     }
 }
 
-extension MyListViewController: MarkTaskAsDoneDelegate {
-    func moveTaskToDone(forCell: UITableViewCell) {
+extension MyListViewController: HandleTaskStatusDelegate {
+    func editTaskDoneStatus(forCell: UITableViewCell) {
         guard let index = tableView.indexPath(for: forCell),
             let task = tasksToDo?[index.row] else { return }
-        do {
-            try realm?.write {
-                task.done = true
-                task.doneDate = Date()
-            }
-        } catch {
-            print("Could not mark as done in Realm")
-        }
+        markTaskAsDone(task: task)
         tableView.reloadData()
     }
 }

@@ -8,12 +8,13 @@
 
 import UIKit
 
-protocol MarkTaskAsDoneDelegate: AnyObject {
-    func moveTaskToDone(forCell: UITableViewCell)
+protocol HandleTaskStatusDelegate: AnyObject {
+    func editTaskDoneStatus(forCell: UITableViewCell)
 }
 
 class TaskTableViewCell: UITableViewCell {
-    weak var markTaskAsDoneDelegate: MarkTaskAsDoneDelegate?
+    var task: Task?
+    weak var handleTaskStatusDelegate: HandleTaskStatusDelegate?
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var taskContentLabel: UILabel!
@@ -27,7 +28,7 @@ class TaskTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    func setUpCellWith(task: Task?) {
+    func setUpCell() {
         setUpViews()
         taskContentLabel.text = task?.content
         if task?.done == true {
@@ -55,6 +56,6 @@ class TaskTableViewCell: UITableViewCell {
     }
 
     @IBAction private func taskDoneButtonTapped(_ sender: Any) {
-        markTaskAsDoneDelegate?.moveTaskToDone(forCell: self)
+        handleTaskStatusDelegate?.editTaskDoneStatus(forCell: self)
     }
 }
