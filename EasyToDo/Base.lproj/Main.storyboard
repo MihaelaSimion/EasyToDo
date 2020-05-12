@@ -287,7 +287,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-bK-S2w" userLabel="Main Stack View">
-                                        <rect key="frame" x="32" y="76" width="311" height="347"/>
+                                        <rect key="frame" x="32" y="76" width="311" height="371"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M82-OK-eEe" userLabel="Task Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="62.5"/>
@@ -305,8 +305,8 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-Wn-k5g" userLabel="Priority Stack View">
-                                                <rect key="frame" x="0.0" y="94.5" width="311" height="176.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-Wn-k5g" userLabel="Priority Stack View">
+                                                <rect key="frame" x="0.0" y="94.5" width="311" height="200.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-AK-YZ8">
                                                         <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
@@ -314,91 +314,55 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ikC-S8-1gY" userLabel="High Stack View">
-                                                        <rect key="frame" x="0.0" y="28.5" width="311" height="44"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-xT-H3u">
-                                                                <rect key="frame" x="0.0" y="0.0" width="255" height="44"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="gOJ-nC-ggO"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <state key="normal" title="High">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="highPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="MKI-JO-aL8"/>
-                                                                </connections>
-                                                            </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MjT-VH-Rt6">
-                                                                <rect key="frame" x="271" y="7" width="40" height="30"/>
-                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="eYA-qn-vQ9"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="hjU-q6-3dO"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YRC-wp-7D6" userLabel="Medium Stack View">
-                                                        <rect key="frame" x="0.0" y="80.5" width="311" height="44"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ct-SE-Oyx">
-                                                                <rect key="frame" x="0.0" y="0.0" width="255" height="44"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="r6h-VF-G3P"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <state key="normal" title="Medium">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="mediumPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="o0v-Ev-H8G"/>
-                                                                </connections>
-                                                            </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RRZ-Uz-HCZ">
-                                                                <rect key="frame" x="271" y="7" width="40" height="30"/>
-                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="gvm-ws-pGf"/>
-                                                                    <constraint firstAttribute="width" constant="40" id="xZu-Fx-v6Z"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tia-S6-sp2" userLabel="Low Stack View">
-                                                        <rect key="frame" x="0.0" y="132.5" width="311" height="44"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl6-P7-Hld">
-                                                                <rect key="frame" x="0.0" y="0.0" width="255" height="44"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="09O-up-Tmw"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <state key="normal" title="Low">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="lowPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="jyN-YQ-hMz"/>
-                                                                </connections>
-                                                            </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HqM-qo-vbq">
-                                                                <rect key="frame" x="271" y="7" width="40" height="30"/>
-                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="Akz-VU-26V"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="Rqm-Ze-y4t"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-xT-H3u" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="36.5" width="311" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="gOJ-nC-ggO"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="High">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="selected"/>
+                                                        <connections>
+                                                            <action selector="highPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="MKI-JO-aL8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ct-SE-Oyx" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="96.5" width="311" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="r6h-VF-G3P"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Medium">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="selected"/>
+                                                        <connections>
+                                                            <action selector="mediumPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="o0v-Ev-H8G"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl6-P7-Hld" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="156.5" width="311" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="09O-up-Tmw"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Low">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="selected"/>
+                                                        <connections>
+                                                            <action selector="lowPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="jyN-YQ-hMz"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-lc-NhG" userLabel="Button Stack View">
-                                                <rect key="frame" x="0.0" y="303" width="311" height="44"/>
+                                                <rect key="frame" x="0.0" y="327" width="311" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqN-sv-D5m">
-                                                        <rect key="frame" x="93.5" y="0.0" width="124" height="44"/>
+                                                        <rect key="frame" x="62" y="0.0" width="187" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="rru-Q2-8nx"/>
                                                         </constraints>
@@ -412,7 +376,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="SqN-sv-D5m" firstAttribute="width" secondItem="Zhb-lc-NhG" secondAttribute="width" multiplier="0.4" id="cb1-d1-vxV"/>
+                                                    <constraint firstItem="SqN-sv-D5m" firstAttribute="width" secondItem="Zhb-lc-NhG" secondAttribute="width" multiplier="0.6" id="cb1-d1-vxV"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -443,11 +407,8 @@
                     <connections>
                         <outlet property="addButton" destination="SqN-sv-D5m" id="KKd-zQ-qKv"/>
                         <outlet property="highPriorityButton" destination="bEZ-xT-H3u" id="kVA-79-Y2Q"/>
-                        <outlet property="highPrioritySelectedImage" destination="MjT-VH-Rt6" id="Dym-lB-8zv"/>
                         <outlet property="lowPriorityButton" destination="xl6-P7-Hld" id="gOh-dg-utb"/>
-                        <outlet property="lowPrioritySelectedImage" destination="HqM-qo-vbq" id="Pac-ms-GAP"/>
                         <outlet property="mediumPriorityButton" destination="2ct-SE-Oyx" id="cDu-Ax-CTD"/>
-                        <outlet property="mediumPrioritySelectedImage" destination="RRZ-Uz-HCZ" id="CjK-uO-8UV"/>
                         <outlet property="scrollView" destination="prd-Zt-eS6" id="ErX-eK-da7"/>
                         <outlet property="taskContentTextField" destination="rQV-aZ-sp1" id="8P8-aI-Bil"/>
                     </connections>

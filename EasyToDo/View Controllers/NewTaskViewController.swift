@@ -17,12 +17,9 @@ class NewTaskViewController: TapRecognizerViewController {
 
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var taskContentTextField: UITextField!
-    @IBOutlet private weak var highPriorityButton: UIButton!
-    @IBOutlet private weak var highPrioritySelectedImage: UIImageView!
-    @IBOutlet private weak var mediumPriorityButton: UIButton!
-    @IBOutlet private weak var mediumPrioritySelectedImage: UIImageView!
-    @IBOutlet private weak var lowPriorityButton: UIButton!
-    @IBOutlet private weak var lowPrioritySelectedImage: UIImageView!
+    @IBOutlet private weak var highPriorityButton: ButtonWithRightImage!
+    @IBOutlet private weak var mediumPriorityButton: ButtonWithRightImage!
+    @IBOutlet private weak var lowPriorityButton: ButtonWithRightImage!
     @IBOutlet private weak var addButton: UIButton!
 
     override func viewDidLoad() {
@@ -49,7 +46,7 @@ class NewTaskViewController: TapRecognizerViewController {
     func setUpViews() {
         for button in [highPriorityButton, mediumPriorityButton, lowPriorityButton] {
             button?.layer.borderWidth = 1
-            button?.layer.borderColor = UIColor.lightGray.cgColor
+            button?.layer.borderColor = #colorLiteral(red: 0.9607843137, green: 0.8235294118, blue: 0, alpha: 1).cgColor
         }
         addButton.layer.cornerRadius = addButton.frame.size.height / 2
         addButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.8235294118, blue: 0, alpha: 1)
@@ -62,41 +59,41 @@ class NewTaskViewController: TapRecognizerViewController {
 
     func setUpInitialPriority() {
         guard let task = taskToEdit else {
-            highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            highPriorityButton.isSelected = true
             return }
         switch task.priority {
         case 3:
-            highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            highPriorityButton.isSelected = true
             chosenPriority = 3
         case 2:
-            mediumPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            mediumPriorityButton.isSelected = true
             chosenPriority = 2
         case 1:
-            lowPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            lowPriorityButton.isSelected = true
             chosenPriority = 1
         default:
-            highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
+            highPriorityButton.isSelected = true
             chosenPriority = 3
         }
     }
 
     @IBAction private func highPriorityButtonTapped(_ sender: Any) {
-        highPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
-        mediumPrioritySelectedImage.image = nil
-        lowPrioritySelectedImage.image = nil
+        highPriorityButton.isSelected = true
+        mediumPriorityButton.isSelected = false
+        lowPriorityButton.isSelected = false
         chosenPriority = 3
     }
     @IBAction private func mediumPriorityButtonTapped(_ sender: Any) {
-        mediumPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
-        highPrioritySelectedImage.image = nil
-        lowPrioritySelectedImage.image = nil
+        mediumPriorityButton.isSelected = true
+        highPriorityButton.isSelected = false
+        lowPriorityButton.isSelected = false
         chosenPriority = 2
     }
 
     @IBAction private func lowPriorityButtonTapped(_ sender: Any) {
-        lowPrioritySelectedImage.image = #imageLiteral(resourceName: "selected")
-        highPrioritySelectedImage.image = nil
-        mediumPrioritySelectedImage.image = nil
+        lowPriorityButton.isSelected = true
+        mediumPriorityButton.isSelected = false
+        highPriorityButton.isSelected = false
         chosenPriority = 1
     }
 
