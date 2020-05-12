@@ -44,6 +44,110 @@
             </objects>
             <point key="canvasLocation" x="854" y="-502"/>
         </scene>
+        <!--Sort Or Filter View Controller-->
+        <scene sceneID="EDH-Ze-IMa">
+            <objects>
+                <viewController id="yAp-eR-Tyi" customClass="SortOrFilterViewController" customModule="EasyToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPx-Lw-mF4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-by-CrL" userLabel="Container Stack View">
+                                <rect key="frame" x="32" y="112" width="311" height="248"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a14-gw-h7C" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3Vb-zB-XEw"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Newest">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="firstChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="7GO-iW-2NP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbl-Wd-SBW" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="CRX-ia-5ai"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Oldest">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="secondChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="9yW-pp-fbZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFP-Wo-ZGo" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="O55-be-vCM"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Highest priority">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="thirdChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="oPP-RE-MfZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmO-vC-c1u" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="rxG-uj-DBh"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Lowest priority">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="fourthChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="hj2-fJ-VpP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPQ-9w-bLZ">
+                                <rect key="frame" x="75" y="392" width="225" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Hph-bO-nfB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Sort">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Svm-by-CrL" firstAttribute="top" secondItem="G3x-ru-Jc4" secondAttribute="top" constant="16" id="80F-yl-il1"/>
+                            <constraint firstItem="sPQ-9w-bLZ" firstAttribute="width" secondItem="G3x-ru-Jc4" secondAttribute="width" multiplier="0.6" id="9Bm-z0-Nu9"/>
+                            <constraint firstItem="sPQ-9w-bLZ" firstAttribute="centerX" secondItem="kPx-Lw-mF4" secondAttribute="centerX" id="AIE-Pv-ABr"/>
+                            <constraint firstItem="G3x-ru-Jc4" firstAttribute="trailing" secondItem="Svm-by-CrL" secondAttribute="trailing" constant="32" id="KpI-EC-1e9"/>
+                            <constraint firstItem="sPQ-9w-bLZ" firstAttribute="top" secondItem="Svm-by-CrL" secondAttribute="bottom" constant="32" id="ah9-rs-or3"/>
+                            <constraint firstItem="Svm-by-CrL" firstAttribute="leading" secondItem="G3x-ru-Jc4" secondAttribute="leading" constant="32" id="mcP-o8-Fvt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G3x-ru-Jc4"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="inE-GF-1PN"/>
+                    <connections>
+                        <outlet property="actionButton" destination="sPQ-9w-bLZ" id="DJ5-DU-jf8"/>
+                        <outlet property="firstChoice" destination="a14-gw-h7C" id="3hh-TG-Bjw"/>
+                        <outlet property="fourthChoice" destination="YmO-vC-c1u" id="69f-3h-vwf"/>
+                        <outlet property="secondChoice" destination="Wbl-Wd-SBW" id="k0d-Wo-Kba"/>
+                        <outlet property="thirdChoice" destination="hFP-Wo-ZGo" id="hM4-b4-lpx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTq-L1-4Rr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="-699"/>
+        </scene>
         <!--My List-->
         <scene sceneID="O53-SA-Zlv">
             <objects>
@@ -56,7 +160,7 @@
                                 <rect key="frame" x="0.0" y="96" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="hOk-hj-YhO">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="hOk-hj-YhO" userLabel="Buttons Stack View">
                                 <rect key="frame" x="32" y="152" width="311" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sc-b0-Tba">
@@ -150,6 +254,7 @@
                         <outlet property="searchBar" destination="Uf5-4m-HEv" id="CFb-3Q-5Hl"/>
                         <outlet property="tableView" destination="EaC-Qn-P0N" id="J55-Sh-gX4"/>
                         <segue destination="kNx-BY-3qY" kind="presentation" identifier="addOrEditTask" id="Gqk-z5-jJN"/>
+                        <segue destination="yAp-eR-Tyi" kind="show" identifier="sortOrFilterTasks" id="pZ7-KH-Q2v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HC-8T-igl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -349,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHO-r6-Vrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2469.5999999999999" y="-502.39880059970017"/>
+            <point key="canvasLocation" x="2454" y="43"/>
         </scene>
         <!--Done-->
         <scene sceneID="LdM-E9-X39">
@@ -403,6 +508,7 @@
     <resources>
         <image name="doneTabIcon" width="25" height="25"/>
         <image name="filter" width="16" height="16"/>
+        <image name="selected" width="26" height="17"/>
         <image name="sort" width="16" height="16"/>
         <image name="toDoTabIcon" width="25" height="25"/>
     </resources>

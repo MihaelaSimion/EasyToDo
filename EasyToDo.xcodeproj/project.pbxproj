@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0048F634801A1DA8A9110EB2 /* Pods_EasyToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343CA21A94B6A482445A0515 /* Pods_EasyToDo.framework */; };
+		471F70F9246ACDD40052B694 /* ButtonWithRightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */; };
 		4752374C246691A4009F400E /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374B246691A4009F400E /* NewTaskViewController.swift */; };
 		4752374E24669AAB009F400E /* TapRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374D24669AAB009F400E /* TapRecognizerViewController.swift */; };
 		4752375024669C0A009F400E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374F24669C0A009F400E /* Alert.swift */; };
@@ -22,10 +23,12 @@
 		475AAE672465B47D00A7B6AB /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE662465B47D00A7B6AB /* TaskTableViewCell.swift */; };
 		475AAE692465B7AE00A7B6AB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE682465B7AE00A7B6AB /* Task.swift */; };
 		475AAE6C2465C08B00A7B6AB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE6B2465C08B00A7B6AB /* DateExtension.swift */; };
+		47B1DC5F246AE90900A3547C /* SortOrFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1DC5E246AE90900A3547C /* SortOrFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		343CA21A94B6A482445A0515 /* Pods_EasyToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithRightImage.swift; sourceTree = "<group>"; };
 		4752374B246691A4009F400E /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		4752374D24669AAB009F400E /* TapRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecognizerViewController.swift; sourceTree = "<group>"; };
 		4752374F24669C0A009F400E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		475AAE662465B47D00A7B6AB /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		475AAE682465B7AE00A7B6AB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		475AAE6B2465C08B00A7B6AB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		47B1DC5E246AE90900A3547C /* SortOrFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrFilterViewController.swift; sourceTree = "<group>"; };
 		9C55A3B48E5C822030BF31E9 /* Pods-EasyToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyToDo.debug.xcconfig"; path = "Target Support Files/Pods-EasyToDo/Pods-EasyToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		FFB2B5CBA873191D1B2575A7 /* Pods-EasyToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyToDo.release.xcconfig"; path = "Target Support Files/Pods-EasyToDo/Pods-EasyToDo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,9 +124,10 @@
 		475AAE3E24657EC200A7B6AB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				475AAE3F2465A70600A7B6AB /* MyListViewController.swift */,
 				475AAE632465AC4A00A7B6AB /* DoneViewController.swift */,
+				475AAE3F2465A70600A7B6AB /* MyListViewController.swift */,
 				4752374B246691A4009F400E /* NewTaskViewController.swift */,
+				47B1DC5E246AE90900A3547C /* SortOrFilterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				475AAE6B2465C08B00A7B6AB /* DateExtension.swift */,
 				4752374D24669AAB009F400E /* TapRecognizerViewController.swift */,
 				4752374F24669C0A009F400E /* Alert.swift */,
+				471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 			files = (
 				475AAE642465AC4A00A7B6AB /* DoneViewController.swift in Sources */,
 				4752374E24669AAB009F400E /* TapRecognizerViewController.swift in Sources */,
+				471F70F9246ACDD40052B694 /* ButtonWithRightImage.swift in Sources */,
 				475AAE6C2465C08B00A7B6AB /* DateExtension.swift in Sources */,
 				4752374C246691A4009F400E /* NewTaskViewController.swift in Sources */,
 				475AAE402465A70600A7B6AB /* MyListViewController.swift in Sources */,
@@ -298,6 +305,7 @@
 				475AAE2824656BAF00A7B6AB /* AppDelegate.swift in Sources */,
 				475AAE692465B7AE00A7B6AB /* Task.swift in Sources */,
 				4752375024669C0A009F400E /* Alert.swift in Sources */,
+				47B1DC5F246AE90900A3547C /* SortOrFilterViewController.swift in Sources */,
 				475AAE622465AAEB00A7B6AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,8 @@ class MyListViewController: UIViewController {
     var tasksToShowInToDoList: Results<Task>?
     var indexForTaskSelectedToEdit: Int?
     var showingSearchResults = false
+    var sortButtonTapped = false
+    var filterButtonTapped = false
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -37,11 +39,18 @@ class MyListViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "addOrEditTask",
-            let taskViewController = segue.destination as? NewTaskViewController else { return }
-        if let selectedCellIndex = indexForTaskSelectedToEdit {
+        if segue.identifier == "addOrEditTask",
+            let taskViewController = segue.destination as? NewTaskViewController,
+            let selectedCellIndex = indexForTaskSelectedToEdit {
             taskViewController.taskToEdit = tasksToShowInToDoList?[selectedCellIndex]
             indexForTaskSelectedToEdit = nil
+        } else if segue.identifier == "sortOrFilterTasks",
+            let sortOrFilterVC = segue.destination as? SortOrFilterViewController {
+            if sortButtonTapped {
+                sortOrFilterVC.isSorting = true
+            } else if filterButtonTapped {
+                sortOrFilterVC.isFiltering = true
+            }
         }
     }
 
@@ -97,9 +106,15 @@ class MyListViewController: UIViewController {
     }
 
     @IBAction private func sortButtonTapped(_ sender: Any) {
+        sortButtonTapped = true
+        filterButtonTapped = false
+        performSegue(withIdentifier: "sortOrFilterTasks", sender: self)
     }
 
     @IBAction private func filterButtonTapped(_ sender: Any) {
+        filterButtonTapped = true
+        sortButtonTapped = false
+        performSegue(withIdentifier: "sortOrFilterTasks", sender: self)
     }
 }
 

@@ -75,6 +75,7 @@ opt_in_rules:
 opt_out_rules:
   - trailing_whitespace
   - trailing_newline
+  - vertical_whitespace_opening_braces
 
 identifier_name:
   excluded:
