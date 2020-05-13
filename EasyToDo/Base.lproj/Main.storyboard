@@ -122,15 +122,33 @@
                                 <state key="normal" title="Sort">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionButtonTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="RTx-Zb-hfk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxf-ri-ygW">
+                                <rect key="frame" x="75" y="452" width="225" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6xM-kQ-nHM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Remove filter"/>
+                                <connections>
+                                    <action selector="removeFilterButtonTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="0i0-xl-vcz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Vxf-ri-ygW" firstAttribute="top" secondItem="sPQ-9w-bLZ" secondAttribute="bottom" constant="16" id="7jk-dh-Xt5"/>
                             <constraint firstItem="Svm-by-CrL" firstAttribute="top" secondItem="G3x-ru-Jc4" secondAttribute="top" constant="16" id="80F-yl-il1"/>
                             <constraint firstItem="sPQ-9w-bLZ" firstAttribute="width" secondItem="G3x-ru-Jc4" secondAttribute="width" multiplier="0.6" id="9Bm-z0-Nu9"/>
                             <constraint firstItem="sPQ-9w-bLZ" firstAttribute="centerX" secondItem="kPx-Lw-mF4" secondAttribute="centerX" id="AIE-Pv-ABr"/>
                             <constraint firstItem="G3x-ru-Jc4" firstAttribute="trailing" secondItem="Svm-by-CrL" secondAttribute="trailing" constant="32" id="KpI-EC-1e9"/>
+                            <constraint firstItem="Vxf-ri-ygW" firstAttribute="centerX" secondItem="kPx-Lw-mF4" secondAttribute="centerX" id="UvA-zE-rvM"/>
                             <constraint firstItem="sPQ-9w-bLZ" firstAttribute="top" secondItem="Svm-by-CrL" secondAttribute="bottom" constant="32" id="ah9-rs-or3"/>
+                            <constraint firstItem="Vxf-ri-ygW" firstAttribute="width" secondItem="G3x-ru-Jc4" secondAttribute="width" multiplier="0.6" id="cby-EK-Nnm"/>
                             <constraint firstItem="Svm-by-CrL" firstAttribute="leading" secondItem="G3x-ru-Jc4" secondAttribute="leading" constant="32" id="mcP-o8-Fvt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G3x-ru-Jc4"/>
@@ -140,13 +158,14 @@
                         <outlet property="actionButton" destination="sPQ-9w-bLZ" id="DJ5-DU-jf8"/>
                         <outlet property="firstChoice" destination="a14-gw-h7C" id="3hh-TG-Bjw"/>
                         <outlet property="fourthChoice" destination="YmO-vC-c1u" id="69f-3h-vwf"/>
+                        <outlet property="removeFilterButton" destination="Vxf-ri-ygW" id="KGU-ue-s3n"/>
                         <outlet property="secondChoice" destination="Wbl-Wd-SBW" id="k0d-Wo-Kba"/>
                         <outlet property="thirdChoice" destination="hFP-Wo-ZGo" id="hM4-b4-lpx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTq-L1-4Rr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="-699"/>
+            <point key="canvasLocation" x="2442" y="-755"/>
         </scene>
         <!--My List-->
         <scene sceneID="O53-SA-Zlv">
@@ -415,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHO-r6-Vrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="43"/>
+            <point key="canvasLocation" x="2442" y="3"/>
         </scene>
         <!--Done-->
         <scene sceneID="LdM-E9-X39">

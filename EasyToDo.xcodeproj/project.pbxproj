@@ -144,10 +144,10 @@
 		475AAE6A2465C07700A7B6AB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				475AAE6B2465C08B00A7B6AB /* DateExtension.swift */,
-				4752374D24669AAB009F400E /* TapRecognizerViewController.swift */,
 				4752374F24669C0A009F400E /* Alert.swift */,
 				471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */,
+				475AAE6B2465C08B00A7B6AB /* DateExtension.swift */,
+				4752374D24669AAB009F400E /* TapRecognizerViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

@@ -17,6 +17,8 @@ class MyListViewController: UIViewController {
     var showingSearchResults = false
     var sortButtonTapped = false
     var filterButtonTapped = false
+    var selectedSortingCriteria: SortingCriteria?
+    var selectedFilteringCriteria: FilteringCriteria?
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -46,10 +48,17 @@ class MyListViewController: UIViewController {
             indexForTaskSelectedToEdit = nil
         } else if segue.identifier == "sortOrFilterTasks",
             let sortOrFilterVC = segue.destination as? SortOrFilterViewController {
+            sortOrFilterVC.sortOrFilterDelegate = self
             if sortButtonTapped {
                 sortOrFilterVC.isSorting = true
+                guard let criteria = selectedSortingCriteria else {
+                    sortOrFilterVC.selectedSortingCriteria = SortingCriteria.newest // default sorting
+                    return
+                }
+                sortOrFilterVC.selectedSortingCriteria = criteria
             } else if filterButtonTapped {
                 sortOrFilterVC.isFiltering = true
+                sortOrFilterVC.selectedFilteringCriteria = selectedFilteringCriteria
             }
         }
     }
@@ -194,5 +203,42 @@ extension MyListViewController: HandleTaskStatusDelegate {
             let task = tasksToShowInToDoList?[index.row] else { return }
         markTaskAsDone(task: task)
         tableView.reloadData()
+    }
+}
+
+extension MyListViewController: SortOrFilterDelegate {
+    func sortTasks(selectedCriteria: SortingCriteria?) {
+        selectedSortingCriteria = selectedCriteria
+        switch selectedCriteria {
+        case .newest:
+            tasksToShowInToDoList = tasksToDo?.sorted(byKeyPath: "createdDate", ascending: false)
+        case .oldest:
+            tasksToShowInToDoList = tasksToDo?.sorted(byKeyPath: "createdDate", ascending: true)
+        case .highest:
+            tasksToShowInToDoList = tasksToDo?.sorted(byKeyPath: "priority", ascending: false)
+        case .lowest:
+            tasksToShowInToDoList = tasksToDo?.sorted(byKeyPath: "priority", ascending: true)
+        default:
+            break
+        }
+        tableView.reloadData()
+    }
+
+    func filterTasks(selectedCriteria: FilteringCriteria?) {
+        selectedFilteringCriteria = selectedCriteria
+        if let criteria = selectedCriteria {
+            switch criteria {
+            case .high:
+                tasksToShowInToDoList = tasksToDo?.filter("priority == 3")
+            case .medium:
+                tasksToShowInToDoList = tasksToDo?.filter("priority == 2")
+            case .low:
+                tasksToShowInToDoList = tasksToDo?.filter("priority == 1")
+            }
+            tableView.reloadData()
+        } else {
+            tasksToShowInToDoList = tasksToDo
+            tableView.reloadData()
+        }
     }
 }
