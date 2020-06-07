@@ -1,8 +1,495 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MBE-y9-doY">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Z9i-Wf-WAs">
+            <objects>
+                <tabBarController modalPresentationStyle="fullScreen" id="MBE-y9-doY" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eZR-D5-LEv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RQ1-hl-8bz" kind="relationship" relationship="viewControllers" id="fEp-Xy-opH"/>
+                        <segue destination="Zre-5Z-ZJO" kind="relationship" relationship="viewControllers" id="J9a-Hl-nKV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CXS-ub-EHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="-224"/>
+        </scene>
+        <!--ToDo-->
+        <scene sceneID="YDJ-BS-v2o">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="RQ1-hl-8bz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ToDo" image="toDoTabIcon" id="Dhx-2x-f7k"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="keB-zj-ESt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2Ca-M1-aYt" kind="relationship" relationship="rootViewController" id="U0i-at-Osc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6S-Cw-xOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="-502"/>
+        </scene>
+        <!--Sort Or Filter View Controller-->
+        <scene sceneID="EDH-Ze-IMa">
+            <objects>
+                <viewController id="yAp-eR-Tyi" customClass="SortOrFilterViewController" customModule="EasyToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPx-Lw-mF4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-by-CrL" userLabel="Container Stack View">
+                                <rect key="frame" x="32" y="112" width="311" height="248"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a14-gw-h7C" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3Vb-zB-XEw"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Newest">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="firstChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="7GO-iW-2NP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbl-Wd-SBW" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="CRX-ia-5ai"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Oldest">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="secondChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="9yW-pp-fbZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFP-Wo-ZGo" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="O55-be-vCM"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Highest priority">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="thirdChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="oPP-RE-MfZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmO-vC-c1u" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="311" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="rxG-uj-DBh"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Lowest priority">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" image="selected"/>
+                                        <connections>
+                                            <action selector="fourthChoiceTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="hj2-fJ-VpP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPQ-9w-bLZ">
+                                <rect key="frame" x="75" y="392" width="225" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Hph-bO-nfB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Sort">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="RTx-Zb-hfk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxf-ri-ygW">
+                                <rect key="frame" x="75" y="452" width="225" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6xM-kQ-nHM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Remove filter"/>
+                                <connections>
+                                    <action selector="removeFilterButtonTapped:" destination="yAp-eR-Tyi" eventType="touchUpInside" id="0i0-xl-vcz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vxf-ri-ygW" firstAttribute="top" secondItem="sPQ-9w-bLZ" secondAttribute="bottom" constant="16" id="7jk-dh-Xt5"/>
+                            <constraint firstItem="Svm-by-CrL" firstAttribute="top" secondItem="G3x-ru-Jc4" secondAttribute="top" constant="16" id="80F-yl-il1"/>
+                            <constraint firstItem="sPQ-9w-bLZ" firstAttribute="width" secondItem="G3x-ru-Jc4" secondAttribute="width" multiplier="0.6" id="9Bm-z0-Nu9"/>
+                            <constraint firstItem="sPQ-9w-bLZ" firstAttribute="centerX" secondItem="kPx-Lw-mF4" secondAttribute="centerX" id="AIE-Pv-ABr"/>
+                            <constraint firstItem="G3x-ru-Jc4" firstAttribute="trailing" secondItem="Svm-by-CrL" secondAttribute="trailing" constant="32" id="KpI-EC-1e9"/>
+                            <constraint firstItem="Vxf-ri-ygW" firstAttribute="centerX" secondItem="kPx-Lw-mF4" secondAttribute="centerX" id="UvA-zE-rvM"/>
+                            <constraint firstItem="sPQ-9w-bLZ" firstAttribute="top" secondItem="Svm-by-CrL" secondAttribute="bottom" constant="32" id="ah9-rs-or3"/>
+                            <constraint firstItem="Vxf-ri-ygW" firstAttribute="width" secondItem="G3x-ru-Jc4" secondAttribute="width" multiplier="0.6" id="cby-EK-Nnm"/>
+                            <constraint firstItem="Svm-by-CrL" firstAttribute="leading" secondItem="G3x-ru-Jc4" secondAttribute="leading" constant="32" id="mcP-o8-Fvt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G3x-ru-Jc4"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="inE-GF-1PN"/>
+                    <connections>
+                        <outlet property="actionButton" destination="sPQ-9w-bLZ" id="DJ5-DU-jf8"/>
+                        <outlet property="firstChoice" destination="a14-gw-h7C" id="3hh-TG-Bjw"/>
+                        <outlet property="fourthChoice" destination="YmO-vC-c1u" id="69f-3h-vwf"/>
+                        <outlet property="removeFilterButton" destination="Vxf-ri-ygW" id="KGU-ue-s3n"/>
+                        <outlet property="secondChoice" destination="Wbl-Wd-SBW" id="k0d-Wo-Kba"/>
+                        <outlet property="thirdChoice" destination="hFP-Wo-ZGo" id="hM4-b4-lpx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTq-L1-4Rr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442" y="-755"/>
+        </scene>
+        <!--My List-->
+        <scene sceneID="O53-SA-Zlv">
+            <objects>
+                <viewController id="2Ca-M1-aYt" customClass="MyListViewController" customModule="EasyToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kjy-gY-EEU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search task" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-4m-HEv">
+                                <rect key="frame" x="0.0" y="96" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="hOk-hj-YhO" userLabel="Buttons Stack View">
+                                <rect key="frame" x="32" y="152" width="311" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sc-b0-Tba">
+                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Sort" image="sort">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortButtonTapped:" destination="2Ca-M1-aYt" eventType="touchUpInside" id="KWl-R7-OY9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bK-4z-aX9">
+                                        <rect key="frame" x="171.5" y="0.0" width="139.5" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="cOV-Wf-dAV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Filter" image="filter">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterButtonTapped:" destination="2Ca-M1-aYt" eventType="touchUpInside" id="gxf-RO-Pg9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EaC-Qn-P0N">
+                                <rect key="frame" x="0.0" y="204" width="375" height="414"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noSearchResultCell" rowHeight="60" id="SJW-du-Nj6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJW-du-Nj6" id="nuP-tO-059">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-63-ljk">
+                                                    <rect key="frame" x="32" y="8" width="311" height="44"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="FOn-qH-jx2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Nn3-63-ljk" secondAttribute="bottom" constant="8" id="27K-bM-w83"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nn3-63-ljk" secondAttribute="trailing" constant="32" id="B78-dq-q2U"/>
+                                                <constraint firstItem="Nn3-63-ljk" firstAttribute="top" secondItem="nuP-tO-059" secondAttribute="top" constant="8" id="EnK-6L-cWM"/>
+                                                <constraint firstItem="Nn3-63-ljk" firstAttribute="leading" secondItem="nuP-tO-059" secondAttribute="leading" constant="32" id="NFa-RS-Pcb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Uf5-4m-HEv" firstAttribute="trailing" secondItem="jKF-26-Vk9" secondAttribute="trailing" id="1g1-Ix-xQg"/>
+                            <constraint firstItem="jKF-26-Vk9" firstAttribute="trailing" secondItem="EaC-Qn-P0N" secondAttribute="trailing" id="94b-yU-8Ug"/>
+                            <constraint firstItem="Uf5-4m-HEv" firstAttribute="leading" secondItem="jKF-26-Vk9" secondAttribute="leading" id="9dO-Wp-mKy"/>
+                            <constraint firstItem="hOk-hj-YhO" firstAttribute="leading" secondItem="jKF-26-Vk9" secondAttribute="leading" constant="32" id="Hau-gV-RW4"/>
+                            <constraint firstItem="hOk-hj-YhO" firstAttribute="top" secondItem="Uf5-4m-HEv" secondAttribute="bottom" id="Zxf-ZJ-3Dj"/>
+                            <constraint firstItem="jKF-26-Vk9" firstAttribute="trailing" secondItem="hOk-hj-YhO" secondAttribute="trailing" constant="32" id="g3J-Ch-omZ"/>
+                            <constraint firstItem="EaC-Qn-P0N" firstAttribute="top" secondItem="hOk-hj-YhO" secondAttribute="bottom" constant="8" id="kiP-oo-yla"/>
+                            <constraint firstItem="EaC-Qn-P0N" firstAttribute="leading" secondItem="jKF-26-Vk9" secondAttribute="leading" id="mq1-Hu-Y9K"/>
+                            <constraint firstItem="jKF-26-Vk9" firstAttribute="bottom" secondItem="EaC-Qn-P0N" secondAttribute="bottom" id="rTx-FF-e7a"/>
+                            <constraint firstItem="Uf5-4m-HEv" firstAttribute="top" secondItem="jKF-26-Vk9" secondAttribute="top" id="waK-J3-ggw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jKF-26-Vk9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My List" id="enA-Xt-rrV">
+                        <barButtonItem key="rightBarButtonItem" title="New task" id="QL4-s4-hlI">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="newTaskButtonTapped:" destination="2Ca-M1-aYt" id="nj4-kg-DKr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Uf5-4m-HEv" id="CFb-3Q-5Hl"/>
+                        <outlet property="tableView" destination="EaC-Qn-P0N" id="J55-Sh-gX4"/>
+                        <segue destination="kNx-BY-3qY" kind="presentation" identifier="addOrEditTask" id="Gqk-z5-jJN"/>
+                        <segue destination="yAp-eR-Tyi" kind="show" identifier="sortOrFilterTasks" id="pZ7-KH-Q2v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3HC-8T-igl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661.5999999999999" y="-502.39880059970017"/>
+        </scene>
+        <!--New Task View Controller-->
+        <scene sceneID="f3E-CK-aT5">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="kNx-BY-3qY" customClass="NewTaskViewController" customModule="EasyToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VhX-W4-Efa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prd-Zt-eS6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzV-zD-iX7">
+                                        <rect key="frame" x="283" y="16" width="60" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Qtg-h8-Cuy"/>
+                                            <constraint firstAttribute="height" constant="44" id="qes-L3-rUN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="cDC-lK-g8i"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-bK-S2w" userLabel="Main Stack View">
+                                        <rect key="frame" x="32" y="76" width="311" height="371"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M82-OK-eEe" userLabel="Task Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="62.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-EW-2Y9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your new to do" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rQV-aZ-sp1">
+                                                        <rect key="frame" x="0.0" y="28.5" width="311" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-Wn-k5g" userLabel="Priority Stack View">
+                                                <rect key="frame" x="0.0" y="94.5" width="311" height="200.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-AK-YZ8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-xT-H3u" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="36.5" width="311" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="gOJ-nC-ggO"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="High">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="selected"/>
+                                                        <connections>
+                                                            <action selector="highPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="MKI-JO-aL8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ct-SE-Oyx" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="96.5" width="311" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="r6h-VF-G3P"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Medium">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="selected"/>
+                                                        <connections>
+                                                            <action selector="mediumPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="o0v-Ev-H8G"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl6-P7-Hld" customClass="ButtonWithRightImage" customModule="EasyToDo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="156.5" width="311" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="09O-up-Tmw"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Low">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="selected"/>
+                                                        <connections>
+                                                            <action selector="lowPriorityButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="jyN-YQ-hMz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-lc-NhG" userLabel="Button Stack View">
+                                                <rect key="frame" x="0.0" y="327" width="311" height="44"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqN-sv-D5m">
+                                                        <rect key="frame" x="62" y="0.0" width="187" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="rru-Q2-8nx"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Add">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addButtonTapped:" destination="kNx-BY-3qY" eventType="touchUpInside" id="dm5-eL-VhJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="SqN-sv-D5m" firstAttribute="width" secondItem="Zhb-lc-NhG" secondAttribute="width" multiplier="0.6" id="cb1-d1-vxV"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mzV-zD-iX7" firstAttribute="top" secondItem="prd-Zt-eS6" secondAttribute="top" constant="16" id="2fJ-5i-UqQ"/>
+                                    <constraint firstItem="eDW-bK-S2w" firstAttribute="leading" secondItem="prd-Zt-eS6" secondAttribute="leading" constant="32" id="Mu5-Ij-2kv"/>
+                                    <constraint firstAttribute="trailing" secondItem="eDW-bK-S2w" secondAttribute="trailing" constant="32" id="Qc4-Rg-Cfi"/>
+                                    <constraint firstAttribute="trailing" secondItem="mzV-zD-iX7" secondAttribute="trailing" constant="32" id="Yfi-Sa-E92"/>
+                                    <constraint firstAttribute="bottom" secondItem="eDW-bK-S2w" secondAttribute="bottom" id="dfE-4p-tPm"/>
+                                    <constraint firstItem="eDW-bK-S2w" firstAttribute="top" secondItem="mzV-zD-iX7" secondAttribute="bottom" constant="16" id="faS-aZ-pza"/>
+                                    <constraint firstItem="eDW-bK-S2w" firstAttribute="width" secondItem="prd-Zt-eS6" secondAttribute="width" constant="-64" id="y5Z-Vg-14K"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Pcn-0o-Xfc"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="pZQ-Ny-8M6"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="prd-Zt-eS6" firstAttribute="trailing" secondItem="1U0-u7-1XG" secondAttribute="trailing" id="2im-lF-aZi"/>
+                            <constraint firstItem="prd-Zt-eS6" firstAttribute="top" secondItem="1U0-u7-1XG" secondAttribute="top" id="CbY-AU-YSW"/>
+                            <constraint firstItem="prd-Zt-eS6" firstAttribute="bottom" secondItem="1U0-u7-1XG" secondAttribute="bottom" id="gd0-As-wXZ"/>
+                            <constraint firstItem="prd-Zt-eS6" firstAttribute="leading" secondItem="1U0-u7-1XG" secondAttribute="leading" id="qzr-md-Y9D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1U0-u7-1XG"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="SqN-sv-D5m" id="KKd-zQ-qKv"/>
+                        <outlet property="highPriorityButton" destination="bEZ-xT-H3u" id="kVA-79-Y2Q"/>
+                        <outlet property="lowPriorityButton" destination="xl6-P7-Hld" id="gOh-dg-utb"/>
+                        <outlet property="mediumPriorityButton" destination="2ct-SE-Oyx" id="cDu-Ax-CTD"/>
+                        <outlet property="scrollView" destination="prd-Zt-eS6" id="ErX-eK-da7"/>
+                        <outlet property="taskContentTextField" destination="rQV-aZ-sp1" id="8P8-aI-Bil"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHO-r6-Vrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442" y="3"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="LdM-E9-X39">
+            <objects>
+                <navigationController id="Zre-5Z-ZJO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Done" image="doneTabIcon" id="vrQ-aQ-a0G"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="M01-eQ-tOo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8rl-es-x87" kind="relationship" relationship="rootViewController" id="7Ao-WF-5oD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m3I-d4-Bh0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="208"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="Jat-YJ-ADw">
+            <objects>
+                <viewController id="8rl-es-x87" customClass="DoneViewController" customModule="EasyToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bgP-oU-Vdd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rPh-7q-Ce2">
+                                <rect key="frame" x="0.0" y="96" width="375" height="522"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rPh-7q-Ce2" firstAttribute="trailing" secondItem="tmW-w2-DQV" secondAttribute="trailing" id="4fO-1t-Ydh"/>
+                            <constraint firstItem="rPh-7q-Ce2" firstAttribute="leading" secondItem="tmW-w2-DQV" secondAttribute="leading" id="HEr-gR-wcU"/>
+                            <constraint firstItem="rPh-7q-Ce2" firstAttribute="top" secondItem="tmW-w2-DQV" secondAttribute="top" id="ZRf-fU-HUg"/>
+                            <constraint firstItem="rPh-7q-Ce2" firstAttribute="bottom" secondItem="tmW-w2-DQV" secondAttribute="bottom" id="cHK-d9-mdT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tmW-w2-DQV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Done" id="agE-1m-rmD"/>
+                    <connections>
+                        <outlet property="tableView" destination="rPh-7q-Ce2" id="TS4-j8-STW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cXB-tm-auS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661.5999999999999" y="206.44677661169416"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="doneTabIcon" width="25" height="25"/>
+        <image name="filter" width="16" height="16"/>
+        <image name="selected" width="26" height="17"/>
+        <image name="sort" width="16" height="16"/>
+        <image name="toDoTabIcon" width="25" height="25"/>
+    </resources>
 </document>

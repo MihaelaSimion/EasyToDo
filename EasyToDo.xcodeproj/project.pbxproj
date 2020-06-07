@@ -8,20 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		0048F634801A1DA8A9110EB2 /* Pods_EasyToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343CA21A94B6A482445A0515 /* Pods_EasyToDo.framework */; };
+		471F70F9246ACDD40052B694 /* ButtonWithRightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */; };
+		4752374C246691A4009F400E /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374B246691A4009F400E /* NewTaskViewController.swift */; };
+		4752374E24669AAB009F400E /* TapRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374D24669AAB009F400E /* TapRecognizerViewController.swift */; };
+		4752375024669C0A009F400E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752374F24669C0A009F400E /* Alert.swift */; };
+		475237522466B45B009F400E /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475237512466B45B009F400E /* TaskTableViewCell.xib */; };
 		475AAE2824656BAF00A7B6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE2724656BAF00A7B6AB /* AppDelegate.swift */; };
 		475AAE2F24656BAF00A7B6AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475AAE2D24656BAF00A7B6AB /* Main.storyboard */; };
 		475AAE3124656BB100A7B6AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 475AAE3024656BB100A7B6AB /* Assets.xcassets */; };
 		475AAE3424656BB100A7B6AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475AAE3224656BB100A7B6AB /* LaunchScreen.storyboard */; };
+		475AAE402465A70600A7B6AB /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE3F2465A70600A7B6AB /* MyListViewController.swift */; };
+		475AAE622465AAEB00A7B6AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE612465AAEB00A7B6AB /* SceneDelegate.swift */; };
+		475AAE642465AC4A00A7B6AB /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE632465AC4A00A7B6AB /* DoneViewController.swift */; };
+		475AAE672465B47D00A7B6AB /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE662465B47D00A7B6AB /* TaskTableViewCell.swift */; };
+		475AAE692465B7AE00A7B6AB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE682465B7AE00A7B6AB /* Task.swift */; };
+		475AAE6C2465C08B00A7B6AB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475AAE6B2465C08B00A7B6AB /* DateExtension.swift */; };
+		47B1DC5F246AE90900A3547C /* SortOrFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1DC5E246AE90900A3547C /* SortOrFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		343CA21A94B6A482445A0515 /* Pods_EasyToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithRightImage.swift; sourceTree = "<group>"; };
+		4752374B246691A4009F400E /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		4752374D24669AAB009F400E /* TapRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecognizerViewController.swift; sourceTree = "<group>"; };
+		4752374F24669C0A009F400E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		475237512466B45B009F400E /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		475AAE2424656BAF00A7B6AB /* EasyToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475AAE2724656BAF00A7B6AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		475AAE2E24656BAF00A7B6AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		475AAE3024656BB100A7B6AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		475AAE3324656BB100A7B6AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		475AAE3524656BB100A7B6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		475AAE3F2465A70600A7B6AB /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		475AAE612465AAEB00A7B6AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		475AAE632465AC4A00A7B6AB /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		475AAE662465B47D00A7B6AB /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		475AAE682465B7AE00A7B6AB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		475AAE6B2465C08B00A7B6AB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		47B1DC5E246AE90900A3547C /* SortOrFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrFilterViewController.swift; sourceTree = "<group>"; };
 		9C55A3B48E5C822030BF31E9 /* Pods-EasyToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyToDo.debug.xcconfig"; path = "Target Support Files/Pods-EasyToDo/Pods-EasyToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		FFB2B5CBA873191D1B2575A7 /* Pods-EasyToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyToDo.release.xcconfig"; path = "Target Support Files/Pods-EasyToDo/Pods-EasyToDo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,9 +92,12 @@
 			isa = PBXGroup;
 			children = (
 				475AAE2724656BAF00A7B6AB /* AppDelegate.swift */,
+				475AAE612465AAEB00A7B6AB /* SceneDelegate.swift */,
 				475AAE3524656BB100A7B6AB /* Info.plist */,
+				475AAE6A2465C07700A7B6AB /* Helpers */,
 				475AAE3D24657E9000A7B6AB /* Models */,
 				475AAE3C24657E5300A7B6AB /* Resources */,
+				475AAE652465B46000A7B6AB /* Cells */,
 				475AAE3E24657EC200A7B6AB /* View Controllers */,
 				475AAE2D24656BAF00A7B6AB /* Main.storyboard */,
 			);
@@ -89,6 +116,7 @@
 		475AAE3D24657E9000A7B6AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				475AAE682465B7AE00A7B6AB /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,8 +124,32 @@
 		475AAE3E24657EC200A7B6AB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				475AAE632465AC4A00A7B6AB /* DoneViewController.swift */,
+				475AAE3F2465A70600A7B6AB /* MyListViewController.swift */,
+				4752374B246691A4009F400E /* NewTaskViewController.swift */,
+				47B1DC5E246AE90900A3547C /* SortOrFilterViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		475AAE652465B46000A7B6AB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				475AAE662465B47D00A7B6AB /* TaskTableViewCell.swift */,
+				475237512466B45B009F400E /* TaskTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		475AAE6A2465C07700A7B6AB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4752374F24669C0A009F400E /* Alert.swift */,
+				471F70F8246ACDD40052B694 /* ButtonWithRightImage.swift */,
+				475AAE6B2465C08B00A7B6AB /* DateExtension.swift */,
+				4752374D24669AAB009F400E /* TapRecognizerViewController.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B480EF7042CADA3D235F629A /* Pods */ = {
@@ -170,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475237522466B45B009F400E /* TaskTableViewCell.xib in Resources */,
 				475AAE3424656BB100A7B6AB /* LaunchScreen.storyboard in Resources */,
 				475AAE3124656BB100A7B6AB /* Assets.xcassets in Resources */,
 				475AAE2F24656BAF00A7B6AB /* Main.storyboard in Resources */,
@@ -242,7 +295,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475AAE642465AC4A00A7B6AB /* DoneViewController.swift in Sources */,
+				4752374E24669AAB009F400E /* TapRecognizerViewController.swift in Sources */,
+				471F70F9246ACDD40052B694 /* ButtonWithRightImage.swift in Sources */,
+				475AAE6C2465C08B00A7B6AB /* DateExtension.swift in Sources */,
+				4752374C246691A4009F400E /* NewTaskViewController.swift in Sources */,
+				475AAE402465A70600A7B6AB /* MyListViewController.swift in Sources */,
+				475AAE672465B47D00A7B6AB /* TaskTableViewCell.swift in Sources */,
 				475AAE2824656BAF00A7B6AB /* AppDelegate.swift in Sources */,
+				475AAE692465B7AE00A7B6AB /* Task.swift in Sources */,
+				4752375024669C0A009F400E /* Alert.swift in Sources */,
+				47B1DC5F246AE90900A3547C /* SortOrFilterViewController.swift in Sources */,
+				475AAE622465AAEB00A7B6AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
